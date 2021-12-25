@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script>
+    const root = document.getElementById('root')
+    const h3 = React.createElement("h3", { id: "title", onMouseEnter: () => console.log("mouse enter") }, "this is h3")
+    const btn = React.createElement("button", { onClick: () => console.log("click me"), style: { backgroundColor: "red" } }, "Click me")
+    const container = React.createElement("div", null, [h3, btn])
+    ReactDOM.render(container, root)
+
+    {/* 
+    ReactDOM.render를 이용해서 화면에 띄워줍니다.
+    REact.createElement("태그", {id,class,style,eventListener..}, "content")가 들어갑니다.
+*/}
+</script>
+
+</html>
