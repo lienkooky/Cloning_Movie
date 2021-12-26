@@ -19,15 +19,44 @@
     // const Button = <button style={{ backgroundColor: "red" }} onClick={() => console.log("click")}> click me</button >
     // const container = React.createElement("div", null, [Title, Button])
 
-    const Title = () => { return (<h3 id="title" onMouseEnter={() => console.log('mouse enter')}>this is h3</h3>) }
-    const Button = () => { return (<button style={{ backgroundColor: "red" }} onClick={() => console.log("click")}> click me</button >) }
-    const Container = () => { return (<div><Title /> <Button /></div>) }
-
-    ReactDOM.render(<Container />, root)
+    // const Title = () => { return (<h3 id="title" onMouseEnter={() => console.log('mouse enter')}>this is h3</h3>) }
+    // const Button = () => { return (<button style={{ backgroundColor: "red" }} onClick={() => console.log("click")}> click me</button >) }
+    // const Container = () => { return (<div><Title /> <Button /></div>) }
+    // ReactDOM.render(<Container />, root)
 
     // ReactDOM.render를 이용해서 화면에 띄워줍니다.
     // REact.createElement("태그", {id,class,style,eventListener..}, "content")가 들어갑니다.
 
+    // let count = 0
+
+    // function countUp() {
+    //     count += 1
+    //     render()
+    // }
+    // function render() {
+    //     ReactDOM.render(<Container />, root)
+    // }
+    // function Container() {
+    //     return (
+    //         <div>
+    //             <h3>this is {count}</h3>
+    //             <button onClick={countUp}>click me</button >
+    //         </div>
+    //     )
+    // }
+    // render()
+
+    function App() {
+        const [counter, modifier] = React.useState(0)
+        return (
+            <div>
+                <h3>this is {counter}</h3>
+                <button>click me</button >
+            </div>
+        )
+    }
+
+    ReactDOM.render(<Container />, root)
 </script>
 
 </html>
