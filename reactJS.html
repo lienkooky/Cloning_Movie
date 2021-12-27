@@ -47,16 +47,19 @@
     // render()
 
     function App() {
-        const [counter, modifier] = React.useState(0)
+        const [counter, setCounter] = React.useState(0)
+        const onClick = () => {
+            setCounter(current => current + 1)
+        }
         return (
             <div>
                 <h3>this is {counter}</h3>
-                <button>click me</button >
+                <button onClick={onClick}>click me</button >
             </div>
         )
     }
 
-    ReactDOM.render(<Container />, root)
+    ReactDOM.render(<App />, root)
 </script>
 
 </html>
