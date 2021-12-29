@@ -16,12 +16,10 @@ function App() {
     setToDos((current) => [toDo, ...current]);
     setToDo((prev) => (prev = ''));
   };
-
   console.log(toDos);
-
   return (
     <div>
-      <h1>Add ToDos ({toDos.length})</h1>
+      <h1>My To Dos ({toDos.length})</h1>
       <form onSubmit={onSubmit}>
         <input
           value={toDo}
@@ -31,6 +29,12 @@ function App() {
         />
         <button>Add to Do</button>
       </form>
+      <hr />
+      <ul>
+        {toDos.map((el, i) => {
+          return <li key={i}>{el}</li>;
+        })}
+      </ul>
     </div>
   );
 }
