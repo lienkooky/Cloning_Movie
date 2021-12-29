@@ -1,55 +1,36 @@
-import { useEffect, useState } from 'react';
-
-function Hello() {
-  useEffect(() => {
-    console.log(`hi :)`);
-    return () => {
-      console.log(`bye :(`);
-    };
-  }, []);
-  return <h1>Hello</h1>;
-}
+import { useState } from 'react';
 
 function App() {
-  // const [counter, setCounter] = useState(0);
-  // const [keyword, setKeyword] = useState('');
-  // const onClick = () => {
-  //   setCounter((prev) => prev + 1);
-  // };
-  // const onChange = (event) => {
-  //   setKeyword(event.target.value);
-  // };
+  const [toDo, setToDo] = useState('');
+  const [toDos, setToDos] = useState([]);
 
-  // useEffect(() => {
-  //   console.log('i run only once');
-  // }, []);
-  // useEffect(() => {
-  //   console.log(`i run when "counter" changes`);
-  // }, [counter]);
-  // useEffect(() => {
-  //   console.log(`i run when "keyword" changes`);
-  // }, [keyword]);
-  // useEffect(() => {
-  //   console.log(`i run when "counter & keyword" changes`);
-  // }, [counter, keyword]);
-
-  // return (
-  //   <div>
-  //     <input value={keyword} onChange={onChange} placeholder="Save ..." />
-  //     <h1>{counter}</h1>
-  //     <button onClick={onClick}>click me</button>
-  //   </div>
-  // );
-
-  const [showing, setShowing] = useState(false);
-
-  const onClick = () => {
-    setShowing((prev) => !prev);
+  const onChange = (event) => {
+    setToDo(event.target.value);
   };
+
+  const onSubmit = (event) => {
+    if (toDo === '') {
+      return;
+    }
+    event.preventDefault();
+    setToDos((current) => [toDo, ...current]);
+    setToDo((prev) => (prev = ''));
+  };
+
+  console.log(toDos);
+
   return (
     <div>
-      {showing ? <Hello /> : null}
-      <button onClick={onClick}>{showing ? `show` : `hide`}</button>
+      <h1>Add ToDos ({toDos.length})</h1>
+      <form onSubmit={onSubmit}>
+        <input
+          value={toDo}
+          onChange={onChange}
+          type="text"
+          placeholder="Write your to do..."
+        />
+        <button>Add to Do</button>
+      </form>
     </div>
   );
 }
